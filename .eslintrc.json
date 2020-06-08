@@ -20,7 +20,8 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "babel"],
+  "parser": "babel-eslint",
   "rules": {
     "react/jsx-one-expression-per-line": ["off", { "allow": "single-child" }],
     "no-unused-vars": [
