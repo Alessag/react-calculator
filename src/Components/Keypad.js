@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Keypad() {
+function Keypad(props) {
+  const { onButtonPress } = props;
   return (
     <div id='buttons' className='container'>
       <div className='row'>
-        <button type='button' className='btn' id='clear'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='clear'
+        >
           C
         </button>
         <button type='button' className='btn' id='arrow'>
@@ -73,5 +80,9 @@ function Keypad() {
     </div>
   );
 }
+
+Keypad.propTypes = {
+  onButtonPress: PropTypes.func.isRequired,
+};
 
 export default Keypad;
