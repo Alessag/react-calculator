@@ -15,7 +15,7 @@ function Screen(props) {
 }
 
 Screen.propTypes = {
-  equation: PropTypes.number.isRequired,
+  equation: PropTypes.string.isRequired,
   result: PropTypes.number.isRequired,
 };
 
