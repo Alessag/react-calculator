@@ -1,5 +1,13 @@
 import React from 'react';
+import PropType from 'prop-types';
 
-const resultScreen = () => <div className='result-screen'>3124</div>;
+const resultScreen = (prop) => {
+  const { children } = prop;
+  return <div className='result-screen'>{children}</div>;
+};
+
+resultScreen.propType = {
+  children: PropType.number.isRequired,
+};
 
 export default resultScreen;

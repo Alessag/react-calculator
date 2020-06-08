@@ -1,7 +1,12 @@
 import React from 'react';
+import PropType from 'prop-types';
 
-const resultScreen = () => (
-  <div className='operation-screen'>300+100+25+18</div>
-);
+const operationScren = (props) => {
+  const { children } = props;
+  return <div className='operation-screen'>{children}</div>;
+};
 
-export default resultScreen;
+operationScren.propTypes = {
+  children: PropType.number.isRequired,
+};
+export default operationScren;
