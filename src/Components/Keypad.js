@@ -14,66 +14,111 @@ function Keypad(props) {
         >
           C
         </button>
-        <button type='button' className='btn' id='arrow'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='arrow'
+        >
           **
         </button>
-        <button type='button' className='btn' id='porcent'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='porcent'
+        >
           %
         </button>
-        <button type='button' className='btn' id='dive'>
+        <button onClick={onButtonPress} type='button' className='btn' id='dive'>
           /
         </button>
       </div>
       <div className='row'>
-        <button type='button' className='btn' id='seven'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='seven'
+        >
           7
         </button>
-        <button type='button' className='btn' id='eight'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='eight'
+        >
           8
         </button>
-        <button type='button' className='btn' id='nine'>
+        <button onClick={onButtonPress} type='button' className='btn' id='nine'>
           9
         </button>
-        <button type='button' className='btn' id='multiply'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='multiply'
+        >
           x
         </button>
       </div>
       <div className='row'>
-        <button type='button' className='btn' id='four'>
+        <button onClick={onButtonPress} type='button' className='btn' id='four'>
           4
         </button>
-        <button type='button' className='btn' id='five'>
+        <button onClick={onButtonPress} type='button' className='btn' id='five'>
           5
         </button>
-        <button type='button' className='btn' id='six'>
+        <button onClick={onButtonPress} type='button' className='btn' id='six'>
           6
         </button>
-        <button type='button' className='btn' id='subtract'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='subtract'
+        >
           -
         </button>
       </div>
       <div className='row'>
-        <button type='button' className='btn' id='one'>
+        <button onClick={onButtonPress} type='button' className='btn' id='one'>
           1
         </button>
-        <button type='button' className='btn' id='two'>
+        <button onClick={onButtonPress} type='button' className='btn' id='two'>
           2
         </button>
-        <button type='button' className='btn' id='three'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='three'
+        >
           3
         </button>
-        <button type='button' className='btn' id='add'>
+        <button onClick={onButtonPress} type='button' className='btn' id='add'>
           +
         </button>
       </div>
       <div className='row'>
-        <button type='button' className='btn' id='zero'>
+        <button onClick={onButtonPress} type='button' className='btn' id='zero'>
           0
         </button>
-        <button type='button' className='btn' id='decimal'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='decimal'
+        >
           .
         </button>
-        <button type='button' className='btn large' id='equals'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn large'
+          id='equals'
+        >
           =
         </button>
       </div>
