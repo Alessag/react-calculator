@@ -4,17 +4,17 @@ function Keypad() {
   return (
     <div id='buttons' className='container'>
       <div className='row'>
-        <button type='button' className='btn' id='divide'>
+        <button type='button' className='btn' id='clear'>
+          C
+        </button>
+        <button type='button' className='btn' id='arrow'>
+          **
+        </button>
+        <button type='button' className='btn' id='porcent'>
+          %
+        </button>
+        <button type='button' className='btn' id='dive'>
           /
-        </button>
-        <button type='button' className='btn' id='clear'>
-          C
-        </button>
-        <button type='button' className='btn' id='clear'>
-          C
-        </button>
-        <button type='button' className='btn' id='clear'>
-          C
         </button>
       </div>
       <div className='row'>
@@ -66,11 +66,8 @@ function Keypad() {
         <button type='button' className='btn' id='decimal'>
           .
         </button>
-        <button type='button' className='btn' id='equals'>
+        <button type='button' className='btn large' id='equals'>
           =
-        </button>
-        <button type='button' className='btn' id='clear'>
-          C
         </button>
       </div>
     </div>
