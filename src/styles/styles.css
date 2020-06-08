@@ -11,3 +11,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.calculator {
+  height: 80vh;
+  width: 25%;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+  background-color: #222;
+}
