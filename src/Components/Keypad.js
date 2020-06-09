@@ -60,7 +60,7 @@ function Keypad(props) {
           className='btn'
           id='multiply'
         >
-          x
+          *
         </button>
       </div>
       <div className='row'>
