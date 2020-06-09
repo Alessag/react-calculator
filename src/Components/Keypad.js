@@ -20,7 +20,7 @@ function Keypad(props) {
           className='btn'
           id='arrow'
         >
-          **
+          &larr;
         </button>
         <button
           onClick={onButtonPress}
