@@ -3,7 +3,11 @@ import PropType from 'prop-types';
 
 const resultScreen = (prop) => {
   const { children } = prop;
-  return <div className='result-screen'>{children}</div>;
+  return (
+    <div className='result-screen' id='display'>
+      {children}
+    </div>
+  );
 };
 
 resultScreen.propType = {
