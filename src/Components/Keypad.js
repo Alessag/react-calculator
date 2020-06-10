@@ -30,7 +30,12 @@ function Keypad(props) {
         >
           %
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='dive'>
+        <button
+          onClick={onButtonPress}
+          type='button'
+          className='btn'
+          id='divide'
+        >
           /
         </button>
       </div>
