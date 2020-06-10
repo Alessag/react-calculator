@@ -25,7 +25,7 @@ class Calculator extends Component {
       return this.clear();
     }
 
-    if ((buttonPressed >= 1 && buttonPressed <= 9) || buttonPressed === '.') {
+    if ((buttonPressed >= 0 && buttonPressed <= 9) || buttonPressed === '.') {
       equation += buttonPressed;
     } else if (aritmethics.indexOf(buttonPressed) !== -1) {
       equation += buttonPressed;
