@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Keypad(props) {
-  const { onButtonPress } = props;
+  const { handleNumberClick, handleOperatorClick } = props;
   return (
     <div id='buttons' className='container'>
       <div className='row'>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='clear'
@@ -15,7 +15,7 @@ function Keypad(props) {
           C
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleNumberClick}
           type='button'
           className='btn'
           id='arrow'
@@ -23,7 +23,7 @@ function Keypad(props) {
           &larr;
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='porcent'
@@ -31,7 +31,7 @@ function Keypad(props) {
           %
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='divide'
@@ -41,7 +41,7 @@ function Keypad(props) {
       </div>
       <div className='row'>
         <button
-          onClick={onButtonPress}
+          onClick={handleNumberClick}
           type='button'
           className='btn'
           id='seven'
@@ -49,18 +49,23 @@ function Keypad(props) {
           7
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleNumberClick}
           type='button'
           className='btn'
           id='eight'
         >
           8
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='nine'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='nine'
+        >
           9
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='multiply'
@@ -69,17 +74,32 @@ function Keypad(props) {
         </button>
       </div>
       <div className='row'>
-        <button onClick={onButtonPress} type='button' className='btn' id='four'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='four'
+        >
           4
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='five'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='five'
+        >
           5
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='six'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='six'
+        >
           6
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='subtract'
@@ -88,30 +108,50 @@ function Keypad(props) {
         </button>
       </div>
       <div className='row'>
-        <button onClick={onButtonPress} type='button' className='btn' id='one'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='one'
+        >
           1
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='two'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='two'
+        >
           2
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleNumberClick}
           type='button'
           className='btn'
           id='three'
         >
           3
         </button>
-        <button onClick={onButtonPress} type='button' className='btn' id='add'>
+        <button
+          onClick={handleOperatorClick}
+          type='button'
+          className='btn'
+          id='add'
+        >
           +
         </button>
       </div>
       <div className='row'>
-        <button onClick={onButtonPress} type='button' className='btn' id='zero'>
+        <button
+          onClick={handleNumberClick}
+          type='button'
+          className='btn'
+          id='zero'
+        >
           0
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleNumberClick}
           type='button'
           className='btn'
           id='decimal'
@@ -119,7 +159,7 @@ function Keypad(props) {
           .
         </button>
         <button
-          onClick={onButtonPress}
+          onClick={handleOperatorClick}
           type='button'
           className='btn large'
           id='equals'
@@ -132,7 +172,8 @@ function Keypad(props) {
 }
 
 Keypad.propTypes = {
-  onButtonPress: PropTypes.func.isRequired,
+  handleNumberClick: PropTypes.func.isRequired,
+  handleOperatorClick: PropTypes.func.isRequired,
 };
 
 export default Keypad;
