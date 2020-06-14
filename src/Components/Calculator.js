@@ -5,6 +5,37 @@ import { create, all } from 'mathjs';
 import Screen from './Screen';
 import Keypad from './Keypad';
 
+const operatorList = [
+  {
+    operator: '=',
+    nameOperator: 'equals',
+  },
+  {
+    operator: '+',
+    nameOperator: 'add',
+  },
+  {
+    operator: '-',
+    nameOperator: 'subtract',
+  },
+  {
+    operator: '*',
+    nameOperator: 'multiply',
+  },
+  {
+    operator: '/',
+    nameOperator: 'divide',
+  },
+  {
+    operator: '.',
+    nameOperator: 'decimal',
+  },
+  {
+    operator: 'clear',
+    nameOperator: 'clear',
+  },
+];
+
 class Calculator extends Component {
   constructor(props) {
     super(props);
@@ -12,10 +43,15 @@ class Calculator extends Component {
       equation: '',
       result: 0,
     };
+
+    this.onButtonPress = this.onButtonPress.bind(this);
   }
 
   onButtonPress = (event) => {
-    const buttonPressed = event.target.innerHTML;
+    const buttonPressed = operatorList.find(
+      (key) => key.nameOperator === event.target.id
+    );
+    // console.log(event.target.id);
     let { equation } = this.state;
     const aritmethics = ['+', '-', '*', '/', '%'];
     const config = {};
