@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import '../styles/styles.css';
 import PropType from 'prop-types';
-import { create, all } from 'mathjs';
+// import { create, all } from 'mathjs';
 import Screen from './Screen';
 import Keypad from './Keypad';
 
@@ -36,72 +37,166 @@ const operatorList = [
   },
 ];
 
+const numberList = [
+  {
+    decimalForm: 0,
+    decimalName: 'zero',
+  },
+  {
+    decimalForm: 1,
+    decimalName: 'one',
+  },
+  {
+    decimalForm: 2,
+    decimalName: 'two',
+  },
+  {
+    decimalForm: 3,
+    decimalName: 'three',
+  },
+  {
+    decimalForm: 4,
+    decimalName: 'four',
+  },
+  {
+    decimalForm: 5,
+    decimalName: 'five',
+  },
+  {
+    decimalForm: 6,
+    decimalName: 'six',
+  },
+  {
+    decimalForm: 7,
+    decimalName: 'seven',
+  },
+  {
+    decimalForm: 8,
+    decimalName: 'eight',
+  },
+  {
+    decimalForm: 9,
+    decimalName: 'nine',
+  },
+];
+
 class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      equation: '',
-      result: 0,
+      history: [],
+      result: [0],
+      waitingOperator: true,
     };
 
-    this.onButtonPress = this.onButtonPress.bind(this);
+    this.handleNumberClick = this.handleNumberClick.bind(this);
+    this.handleOperatorClick = this.handleOperatorClick.bind(this);
   }
 
-  onButtonPress = (event) => {
-    const buttonPressed = operatorList.find(
+  handleNumberClick = (event) => {
+    const { history, result } = this.state;
+    const { id } = event.target;
+
+    const numberObject = numberList.find((key) => key.decimalName === id);
+
+    if (result[0] === 0 && result[1] !== '.') {
+      if (id === 'zero') {
+        return this.setState({
+          history: [...history],
+          result: [numberObject.decimalForm],
+          waitingOperator: true,
+        });
+      }
+      return this.setState({
+        history: [...history],
+        result: [numberObject.decimalForm],
+        waitingOperator: true,
+      });
+    }
+    return this.setState({
+      history: [...history],
+      result: [...result, numberObject.decimalForm],
+      waitingOperator: true,
+    });
+  };
+
+  handleOperatorClick = (event) => {
+    const { id } = event.target;
+    const { history, result, waitingOperator } = this.state;
+    const operatorObject = operatorList.find(
       (key) => key.nameOperator === event.target.id
     );
-    // console.log(event.target.id);
-    let { equation } = this.state;
-    const aritmethics = ['+', '-', '*', '/', '%'];
-    const config = {};
-    const math = create(all, config);
 
-    if (buttonPressed === 'C') {
-      return this.clear();
-    }
+    switch (id) {
+      case 'clear':
+        return this.setState({
+          history: [],
+          result: [0],
+          waitingOperator: true,
+        });
 
-    if ((buttonPressed >= 0 && buttonPressed <= 9) || buttonPressed === '.') {
-      equation += buttonPressed;
-    } else if (aritmethics.indexOf(buttonPressed) !== -1) {
-      equation += buttonPressed;
-    } else if (buttonPressed === '=') {
-      try {
-        const result = math.evaluate(equation);
-        this.setState({ result });
-      } catch (error) {
-        alert('Invalid Mathematical Equation'); // eslint-disable-line no-alert
+      case 'equals': {
+        const finalCal = [...history, ...result];
+        // eslint-disable-next-line no-eval
+        const finalResult = eval(finalCal.join(''));
+        return this.setState({
+          history: [],
+          result: [finalResult],
+          waitingOperator: true,
+        });
       }
-    } else {
-      equation = equation.trim();
-      equation = equation.substr(0, equation.length - 1);
-    }
-    this.setState({ equation });
 
+      case 'decimal': {
+        if (!result.includes('.')) {
+          return this.setState({
+            history: [...history],
+            result: [...result, operatorObject.operator],
+            waitingOperator: true,
+          });
+        }
+        break;
+      }
+
+      default:
+        if (waitingOperator) {
+          return this.setState({
+            history: [...history, result.join(''), operatorObject.operator],
+            result: [0],
+            waitingOperator: false,
+          });
+        }
+        return this.setState({
+          history: history.map((val, index) => {
+            if (index < history.length - 1) {
+              return val;
+            }
+            return operatorObject.operator;
+          }),
+          result: [...result, operatorObject.operator],
+          waitingOperator: false,
+        });
+    }
     return 'hola';
   };
 
-  clear() {
-    this.setState({
-      equation: '',
-      result: 0,
-    });
-  }
-
   render() {
-    const { equation, result } = this.state;
+    const { history, result } = this.state;
     return (
       <div className='calculator'>
-        <Screen equation={equation} result={result} />
-        <Keypad onButtonPress={this.onButtonPress} />
+        <Screen history={history} result={result} />
+        <Keypad
+          handleOperatorClick={this.handleOperatorClick}
+          handleNumberClick={this.handleNumberClick}
+        />
       </div>
     );
   }
 }
 
 Calculator.propType = {
-  equation: PropType.string.isRequired,
-  result: PropType.number.isRequired,
+  waitingOperator: PropType.bool.isRequired,
+  result: PropType.node.isRequired,
+  history: PropType.node.isRequired,
 };
 
 export default Calculator;
