@@ -14,12 +14,7 @@ function Keypad(props) {
         >
           C
         </button>
-        <button
-          onClick={handleNumberClick}
-          type='button'
-          className='btn'
-          id='arrow'
-        >
+        <button type='button' className='btn' id='arrow'>
           &larr;
         </button>
         <button
@@ -151,7 +146,7 @@ function Keypad(props) {
           0
         </button>
         <button
-          onClick={handleNumberClick}
+          onClick={handleOperatorClick}
           type='button'
           className='btn'
           id='decimal'
