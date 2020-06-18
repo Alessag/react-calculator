@@ -7,6 +7,6 @@ const operationScren = (props) => {
 };
 
 operationScren.propTypes = {
-  children: PropType.string.isRequired,
+  children: PropType.node.isRequired,
 };
 export default operationScren;

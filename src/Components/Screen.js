@@ -5,18 +5,18 @@ import ResultScreen from './ResultScreen';
 import '../styles/styles.css';
 
 function Screen(props) {
-  const { equation, result } = props;
+  const { history, result } = props;
   return (
     <div className='screen'>
-      <OperationScreen>{equation}</OperationScreen>
+      <OperationScreen>{history}</OperationScreen>
       <ResultScreen>{result}</ResultScreen>
     </div>
   );
 }
 
 Screen.propTypes = {
-  equation: PropTypes.string.isRequired,
-  result: PropTypes.number.isRequired,
+  history: PropTypes.node.isRequired,
+  result: PropTypes.node.isRequired,
 };
 
 export default Screen;
