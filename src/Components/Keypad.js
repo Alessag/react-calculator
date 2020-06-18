@@ -9,13 +9,18 @@ function Keypad(props) {
         <button
           onClick={handleOperatorClick}
           type='button'
+          className='btn clear'
+          id='clear'
+        >
+          AC
+        </button>
+        <button
+          onClick={handleOperatorClick}
+          type='button'
           className='btn'
           id='clear'
         >
           C
-        </button>
-        <button type='button' className='btn' id='arrow'>
-          &larr;
         </button>
         <button
           onClick={handleOperatorClick}
