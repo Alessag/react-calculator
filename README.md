@@ -8,7 +8,7 @@ Simple arithmetic calculator built with Reactjs
 
 install [node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-**2 -** Clone the project and install the dependencies:
+**2 -** Clone the project and install the dependencies
 
 ```sh
 $ git clone https://github.com/Alessag/react-calculator.git
